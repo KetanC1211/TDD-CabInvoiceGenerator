@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CabInvoiceGenerator {
-	public static final int COST_PER_KMS=10;
+	public static int costPerKms=10;
 	public static final int COST_PER_MIN=1;
 	public static int totalNumberOfRides;
 	public static double totalFare;
@@ -24,7 +24,7 @@ public class CabInvoiceGenerator {
 		userList.add(user2);
 		userList.add(user3);
 	
-		return getInvoice(userList.get(id).getTotalDistance(),userList.get(id).getTotalRideDuration());		
+		return getInvoice(userList.get(id).getTotalDistance(),userList.get(id).getTotalRideDuration(),"R");		
 	}
 
 	
@@ -43,14 +43,17 @@ public class CabInvoiceGenerator {
 			totalTime = totalTime + timeSpent;
 			counter++;		
 		}
-		 getInvoice(totalDistance,totalTime);
+		getInvoice(totalDistance,totalTime,"R");
 
 		sc.close();
 	}
 	
-	public static double getInvoice(double totalKms,double getTime) {		
+	public static double getInvoice(double totalKms,double getTime,String PremiumOrRegular) {		
 		double totalFare;
-		totalFare = (totalKms*COST_PER_KMS)+(getTime*COST_PER_MIN);
+		if(PremiumOrRegular.equals("P")) {
+			costPerKms=20;
+		}
+		totalFare = (totalKms*costPerKms)+(getTime*COST_PER_MIN);
 		if(totalFare<=5) {
 			totalFare=5;
 			System.out.println("--------------Invoice------------");
@@ -71,6 +74,7 @@ public class CabInvoiceGenerator {
 	}
 	
 	public static void main(String[] args) {
+		getInvoice(10.0,20.0,"P");
 //		getEnhancedInvoice();
 //		generateInvoiceAsPerUserID();
 
