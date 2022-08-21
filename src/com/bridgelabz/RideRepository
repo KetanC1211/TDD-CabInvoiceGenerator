@@ -1,0 +1,48 @@
+package com.bridgelabz;
+
+public class RideRepository {
+	int id;
+	double totalDistance;
+	double totalRideDuration;
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getTotalDistance() {
+		return totalDistance;
+	}
+
+	public void setTotalDistance(double totalDistance) {
+		this.totalDistance = totalDistance;
+	}
+
+	public double getTotalRideDuration() {
+		return totalRideDuration;
+	}
+
+	public void setTotalRideDuration(double totalRideDuration) {
+		this.totalRideDuration = totalRideDuration;
+	}
+
+	public RideRepository(int id, double totalDistance2, double totalRideDuration2) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.id = id;
+		totalDistance = totalDistance2;
+		totalRideDuration = totalRideDuration2;
+	}
+
+	@Override
+	public String toString() {
+		return "RideRepository [id=" + id + ", TotalDistance=" + totalDistance + ", TotalRideDuration="
+				+ totalRideDuration + "]";
+	}
+	
+	
+}
