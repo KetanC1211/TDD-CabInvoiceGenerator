@@ -13,6 +13,7 @@ public class CabInvoiceGeneratorTest {
 		Assert.assertEquals(120.0,c.getInvoice(10, 20), 0);
 		
 	}
+
 	@Test
 	public void test1() {
 		CabInvoiceGenerator c = new CabInvoiceGenerator();
