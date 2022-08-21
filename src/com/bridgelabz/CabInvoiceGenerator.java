@@ -12,6 +12,21 @@ public class CabInvoiceGenerator {
 	public static double totalDistance;
 	public static double totalTime;
 	
+	static List<RideRepository> userList = new ArrayList<>();
+
+	
+	
+	static double generateInvoiceAsPerUserID(int id) {
+		RideRepository user1 = new RideRepository(1,10.0,20.0);
+		RideRepository user2 = new RideRepository(2,20.0,40.0);
+		RideRepository user3 = new RideRepository(3,30.0,60.0);
+		userList.add(user1);
+		userList.add(user2);
+		userList.add(user3);
+	
+		return getInvoice(userList.get(id).getTotalDistance(),userList.get(id).getTotalRideDuration());		
+	}
+
 	
 	public static void getEnhancedInvoice() {
 		int counter = 1;
@@ -28,7 +43,8 @@ public class CabInvoiceGenerator {
 			totalTime = totalTime + timeSpent;
 			counter++;		
 		}
-		getInvoice(totalDistance,totalTime);
+		 getInvoice(totalDistance,totalTime);
+
 		sc.close();
 	}
 	
@@ -48,6 +64,7 @@ public class CabInvoiceGenerator {
 		System.out.println("Total Ride Duration : "+getTime);
 		System.out.println("Total payable amount for ride is "+totalFare);
 		System.out.println("Average Fare Per Ride is "+totalFare/totalNumberOfRides);
+
 		System.out.println("---------------------------------");
 		return totalFare;
 		}		
@@ -56,6 +73,7 @@ public class CabInvoiceGenerator {
 	public static void main(String[] args) {
 //		getEnhancedInvoice();
 //		generateInvoiceAsPerUserID();
+
 		generateInvoiceAsPerUserID();
 	}
 

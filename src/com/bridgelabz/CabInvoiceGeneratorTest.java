@@ -19,4 +19,9 @@ public class CabInvoiceGeneratorTest {
 		CabInvoiceGenerator c = new CabInvoiceGenerator();
 		Assert.assertEquals(240.0,c.getInvoice(20, 40), 0);
 	}
+	@Test
+	public void test3() {
+		CabInvoiceGenerator c = new CabInvoiceGenerator();
+		Assert.assertEquals(360.0,c.generateInvoiceAsPerUserID(2),0);
+	}
 }
